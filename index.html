@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acuerdo Digital de Accionistas - Casas Fabrick SpA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e5e7eb; /* bg-gray-200 */
+        }
+        .clause-title {
+            font-weight: 700;
+            color: #111827; /* text-gray-900 */
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .signature-line {
+            border-top: 1px solid #374151; /* border-gray-700 */
+            margin-top: 3rem;
+        }
+        .data-placeholder {
+            font-weight: bold;
+            color: #1d4ed8; /* blue-700 */
+        }
+        @media print {
+            body { background-color: #ffffff; }
+            .no-print { display: none; }
+            .document-container { box-shadow: none; border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- SECCIÓN DE LLENADO DE DATOS -->
+    <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-2xl mb-8 no-print shadow-lg">
+        <h2 class="text-2xl font-bold text-yellow-400 text-center mb-6">Panel de Llenado de Datos del Contrato</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Fundador -->
+            <div class="space-y-4 bg-gray-700 p-4 rounded-lg">
+                <h3 class="font-bold text-white">Datos del Fundador</h3>
+                <input type="text" id="founder-name" placeholder="Nombre Completo del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                <input type="text" id="founder-rut" placeholder="RUT del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                <input type="text" id="founder-domicile" placeholder="Domicilio del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+            </div>
+            <!-- Inversionista -->
+            <div class="space-y-4 bg-gray-700 p-4 rounded-lg">
+                <h3 class="font-bold text-white">Datos del Inversionista</h3>
+                <input type="text" id="investor-name" placeholder="Nombre Completo del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                <input type="text" id="investor-rut" placeholder="RUT del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                <input type="text" id="investor-domicile" placeholder="Domicilio del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+            </div>
+            <!-- Datos de la Sociedad y Acuerdo -->
+            <div class="md:col-span-2 space-y-4 bg-gray-700 p-4 rounded-lg">
+                 <h3 class="font-bold text-white">Datos del Acuerdo</h3>
+                 <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="agreement-day" placeholder="Día (ej: 10)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="text" id="agreement-month" placeholder="Mes (ej: Agosto)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="text" id="company-rut" placeholder="RUT de la Empresa" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="number" id="investment-amount" placeholder="Monto Inversión (ej: 51400000)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTO LEGAL -->
+    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 shadow-2xl border border-gray-300 document-container">
+
+        <!-- Encabezado -->
+        <header class="text-center mb-10">
+            <div class="w-48 mx-auto mb-4">
+                 <svg viewBox="0 0 200 100" class="w-full h-auto">
+                    <path d="M160 20 L100 70 L40 20 L0 55 L100 100 L200 55 L160 20 Z" fill="#111827"/>
+                    <text x="100" y="45" font-family="Inter, sans-serif" font-size="20" font-weight="900" text-anchor="middle" fill="#fbbf24">CASAS FABRICK</text>
+                    <text x="100" y="65" font-family="Inter, sans-serif" font-size="8" text-anchor="middle" fill="#ffffff" letter-spacing="1">CONSTRUIMOS CASAS, CREAMOS HISTORIAS</text>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900">PACTO DE ACCIONISTAS</h1>
+            <h2 class="text-xl text-gray-700">CASAS FABRICK SpA</h2>
+        </header>
+
+        <!-- Comparecencia -->
+        <p class="text-sm text-gray-700 mb-6">En Linares, a <span id="day-display" class="data-placeholder">[Día]</span> de <span id="month-display" class="data-placeholder">[Mes]</span> de 2025, entre:</p>
+        <p class="text-sm text-gray-700 mb-2">Por una parte, **<span id="founder-name-display" class="data-placeholder">[TU NOMBRE COMPLETO]</span>**, cédula de identidad número **<span id="founder-rut-display" class="data-placeholder">[Tu RUT]</span>**, domiciliado en **<span id="founder-domicile-display" class="data-placeholder">[Tu Domicilio]</span>**, en adelante el "Fundador";</p>
+        <p class="text-sm text-gray-700 mb-6">Y por la otra parte, **<span id="investor-name-display" class="data-placeholder">[NOMBRE DEL INVERSIONISTA]</span>**, cédula de identidad número **<span id="investor-rut-display" class="data-placeholder">[RUT del Inversionista]</span>**, domiciliado en **<span id="investor-domicile-display" class="data-placeholder">[Domicilio del Inversionista]</span>**, en adelante el "Inversionista";</p>
+
+        <!-- Cláusulas -->
+        <div>
+            <h3 class="clause-title">PRIMERO: ANTECEDENTES.</h3>
+            <p class="text-sm text-gray-700">Los comparecientes son los únicos accionistas de la sociedad "Casas Fabrick SpA", RUT N° <span id="company-rut-display" class="data-placeholder">[RUT de la Empresa]</span>, en adelante "la Sociedad". Este pacto regula sus relaciones, la administración y la distribución de utilidades, en adición a los estatutos sociales.</p>
+
+            <h3 class="clause-title">SEGUNDO: ADMINISTRACIÓN Y TOMA DE DECISIONES.</h3>
+            <p class="text-sm text-gray-700">La administración de la Sociedad corresponderá en su totalidad al Fundador, don **<span id="founder-name-display-2" class="data-placeholder">[TU NOMBRE COMPLETO]</span>**. Para decisiones estratégicas, el Administrador consultará al Inversionista, pero la decisión final recaerá exclusivamente en el Administrador.</p>
+
+            <h3 class="clause-title">TERCERO: POLÍTICA DE DISTRIBUCIÓN DE UTILIDADES.</h3>
+            <p class="text-sm text-gray-700">La Utilidad Bruta de cada proyecto (ingreso total menos costos directos) se distribuirá de la siguiente manera:</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 mt-2 pl-4">
+                <li>Un **30% (treinta por ciento)** para el Inversionista.</li>
+                <li>Un **30% (treinta por ciento)** para el Fundador.</li>
+                <li>Un **40% (cuarenta por ciento)** para un "Fondo de Recuperación de Capital y Reinversión".</li>
+            </ul>
+
+            <h3 class="clause-title">CUARTO: MECANISMO DE RETORNO DE LA INVERSIÓN.</h3>
+            <p class="text-sm text-gray-700">El Inversionista ha aportado un capital de **$<span id="investment-amount-display" class="data-placeholder">[Monto]</span> (<span id="investment-amount-text" class="data-placeholder">[Monto en Palabras]</span> pesos chilenos)**, en adelante "el Capital Invertido". El 40% de la Utilidad Bruta se destinará a devolver este capital.</p>
+
+            <h3 class="clause-title">QUINTO: CESE DE PARTICIPACIÓN POST-RECUPERACIÓN.</h3>
+            <p class="text-sm text-gray-700">Una vez que el Inversionista haya recibido el 100% de su Capital Invertido, su derecho a recibir el 30% de las utilidades de futuros proyectos cesará de forma automática y permanente. A partir de ese momento, el Inversionista quedará exento de la participación en las ganancias de la Sociedad.</p>
+
+            <h3 class="clause-title">SEXTO: CESIÓN DE ACCIONES POST-RECUPERACIÓN.</h3>
+            <p class="text-sm text-gray-700">Como consecuencia de lo establecido en la cláusula anterior, y una vez completado el retorno del 100% del Capital Invertido, el Inversionista se obliga a ceder y transferir la totalidad de sus acciones en la Sociedad al Fundador, o a quien este designe. Dicha cesión se realizará a título gratuito, por cuanto su valor se considera pagado con el retorno de la inversión y la participación en las utilidades durante el periodo de recuperación. Las partes se comprometen a firmar todos los documentos necesarios para perfeccionar esta cesión en un plazo no mayor a 30 días hábiles desde la notificación del pago final.</p>
+
+            <h3 class="clause-title">SÉPTIMO: CONFIDENCIALIDAD Y ACUERDO COMPLETO.</h3>
+            <p class="text-sm text-gray-700">Las partes se obligan a mantener estricta confidencialidad sobre este acuerdo. Este pacto representa el entendimiento total y completo entre las partes, reemplazando cualquier acuerdo verbal o escrito previo.</p>
+
+            <h3 class="clause-title">OCTAVO: SOLUCIÓN DE CONTROVERSIAS Y VIGENCIA.</h3>
+            <p class="text-sm text-gray-700">Para todos los efectos legales, las partes fijan su domicilio en la ciudad de Linares. El presente pacto tendrá una duración indefinida mientras los comparecientes mantengan su calidad de accionistas.</p>
+        </div>
+
+        <!-- Sección de Firmas -->
+        <div class="mt-16 grid grid-cols-2 gap-16">
+            <div class="text-center">
+                <div class="signature-line w-full"></div>
+                <p id="founder-signature-name" class="mt-2 font-bold">[TU NOMBRE COMPLETO]</p>
+                <p id="founder-signature-rut" class="text-sm text-gray-600">RUT: [Tu RUT]</p>
+                <p class="text-sm text-gray-600 font-bold">FUNDADOR / ADMINISTRADOR</p>
+            </div>
+            <div class="text-center">
+                <div class="signature-line w-full"></div>
+                <p id="investor-signature-name" class="mt-2 font-bold">[NOMBRE DEL INVERSIONISTA]</p>
+                <p id="investor-signature-rut" class="text-sm text-gray-600">RUT: [RUT del Inversionista]</p>
+                <p class="text-sm text-gray-600 font-bold">INVERSIONISTA</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-6 no-print">
+        <button onclick="window.print()" class="bg-gray-800 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-900 transition-colors">Imprimir y Notariar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fields = {
+                'founder-name': ['founder-name-display', 'founder-name-display-2', 'founder-signature-name'],
+                'founder-rut': ['founder-rut-display', 'founder-signature-rut'],
+                'founder-domicile': ['founder-domicile-display'],
+                'investor-name': ['investor-name-display', 'investor-signature-name'],
+                'investor-rut': ['investor-rut-display', 'investor-signature-rut'],
+                'investor-domicile': ['investor-domicile-display'],
+                'agreement-day': ['day-display'],
+                'agreement-month': ['month-display'],
+                'company-rut': ['company-rut-display'],
+                'investment-amount': ['investment-amount-display']
+            };
+
+            function updateContract() {
+                for (const inputId in fields) {
+                    const inputElement = document.getElementById(inputId);
+                    if(!inputElement) continue;
+                    const value = inputElement.value;
+                    const displayIds = fields[inputId];
+
+                    displayIds.forEach(displayId => {
+                        const displayElement = document.getElementById(displayId);
+                        if(displayElement) {
+                             const placeholder = `[${displayElement.id.replace(/-display(-\d)?|-signature/g, '').replace(/-/g,' ')}]`;
+                             displayElement.textContent = value || placeholder;
+                        }
+                    });
+                }
+
+                const amountInput = document.getElementById('investment-amount');
+                const amount = parseInt(amountInput.value, 10);
+                const amountTextEl = document.getElementById('investment-amount-text');
+                if (amountTextEl) {
+                    amountTextEl.textContent = amount ? numberToWords(amount) : '[Monto en Palabras]';
+                }
+            }
+
+            Object.keys(fields).forEach(inputId => {
+                const element = document.getElementById(inputId);
+                if (element) {
+                   element.addEventListener('keyup', updateContract);
+                }
+            });
+
+            function numberToWords(n) {
+                if (typeof n === 'string') n = parseInt(n, 10);
+                if (isNaN(n) || n === null) return '';
+                if (n === 0) return 'cero';
+
+                const unidades = ['', 'un', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+                const decenas = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'];
+                const veintes = ['veinte', 'veintiún', 'veintidós', 'veintitrés', 'veinticuatro', 'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 'veintinueve'];
+                const multiplosDeDiez = ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+                const centenas = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'];
+
+                function getDecenas(num) {
+                    if (num < 10) return unidades[num];
+                    if (num < 20) return decenas[num - 10];
+                    if (num < 30) return veintes[num - 20];
+                    const d = Math.floor(num / 10);
+                    const u = num % 10;
+                    let output = multiplosDeDiez[d];
+                    if (u > 0) output += ' y ' + unidades[u];
+                    if (output.endsWith('uno')) {
+                        output = output.slice(0, -1);
+                    }
+                    return output;
+                }
+
+                function getCentenas(num) {
+                    if (num > 999) return '';
+                    if (num === 100) return 'cien';
+                    const c = Math.floor(num / 100);
+                    const d = num % 100;
+                    let output = centenas[c];
+                    if (d > 0) {
+                        output += ' ' + getDecenas(d);
+                    }
+                    return output;
+                }
+
+                function getMiles(num) {
+                    if (num < 1000) return getCentenas(num);
+                    const m = Math.floor(num / 1000);
+                    const r = num % 1000;
+                    let output = '';
+                    if (m === 1) {
+                        output = 'mil';
+                    } else {
+                        output = getCentenas(m) + ' mil';
+                    }
+                    if (r > 0) {
+                        output += ' ' + getCentenas(r);
+                    }
+                    return output;
+                }
+
+                function getMillones(num) {
+                    if (num < 1000000) return getMiles(num);
+                    const m = Math.floor(num / 1000000);
+                    const r = num % 1000000;
+                    let output = '';
+                    if (m === 1) {
+                        output = 'un millón';
+                    } else {
+                        output = getMiles(m) + ' millones';
+                    }
+                    if (r > 0) {
+                        output += ' ' + getMiles(r);
+                    }
+                    return output;
+                }
+
+                let result = getMillones(n);
+                if (n % 100 === 21 && !result.includes('millones') && !result.includes('mil')) {
+                    result = result.replace('veintiún', 'veintiuno');
+                }
+                if (n === 1) {
+                    result = 'uno';
+                }
+
+                return result.trim();
+            }
+
+            updateContract();
+        });
+    </script>
+
+</body>
+</html>
