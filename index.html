@@ -1,275 +1,317 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acuerdo Digital de Accionistas - Casas Fabrick SpA</title>
+    <title>Casas Fabrick | Oportunidad de Inversión</title>
+    
+    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carga de la fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
+        /* Paleta de colores profesional */
+        :root {
+            --color-primary: #1e3a8a; /* Azul oscuro (Blue-800) */
+            --color-secondary: #f59e0b; /* Ámbar (Amber-500) */
+            --color-text: #1f2937; /* Gris oscuro (Gray-800) */
+            --color-text-light: #4b5563; /* Gris medio (Gray-600) */
+        }
+
+        /* Aplicar la fuente Inter y colores base */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e5e7eb; /* bg-gray-200 */
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .clause-title {
+
+        /* Títulos de sección profesionales */
+        .section-title {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 800; /* Extra-bold */
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 3.5rem; /* 56px */
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 640px) {
+            .section-title {
+                font-size: 2rem; /* 32px */
+                margin-bottom: 2.5rem; /* 40px */
+            }
+        }
+
+        /* Estilo de tarjeta base */
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb; /* Gray-200 */
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
+        }
+
+        /* Estilo para los números en los pasos */
+        .step-number {
+            flex-shrink: 0;
+            width: 3rem; /* 48px */
+            height: 3rem; /* 48px */
+            border-radius: 9999px; /* full */
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            font-size: 1.25rem; /* 20px */
             font-weight: 700;
-            color: #111827; /* text-gray-900 */
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .signature-line {
-            border-top: 1px solid #374151; /* border-gray-700 */
-            margin-top: 3rem;
-        }
-        .data-placeholder {
-            font-weight: bold;
-            color: #1d4ed8; /* blue-700 */
-        }
-        @media print {
-            body { background-color: #ffffff; }
-            .no-print { display: none; }
-            .document-container { box-shadow: none; border: none; padding: 0; }
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="bg-gray-100">
 
-    <!-- SECCIÓN DE LLENADO DE DATOS -->
-    <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-2xl mb-8 no-print shadow-lg">
-        <h2 class="text-2xl font-bold text-yellow-400 text-center mb-6">Panel de Llenado de Datos del Contrato</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Fundador -->
-            <div class="space-y-4 bg-gray-700 p-4 rounded-lg">
-                <h3 class="font-bold text-white">Datos del Fundador</h3>
-                <input type="text" id="founder-name" placeholder="Nombre Completo del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                <input type="text" id="founder-rut" placeholder="RUT del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                <input type="text" id="founder-domicile" placeholder="Domicilio del Fundador" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-            </div>
-            <!-- Inversionista -->
-            <div class="space-y-4 bg-gray-700 p-4 rounded-lg">
-                <h3 class="font-bold text-white">Datos del Inversionista</h3>
-                <input type="text" id="investor-name" placeholder="Nombre Completo del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                <input type="text" id="investor-rut" placeholder="RUT del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                <input type="text" id="investor-domicile" placeholder="Domicilio del Inversionista" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-            </div>
-            <!-- Datos de la Sociedad y Acuerdo -->
-            <div class="md:col-span-2 space-y-4 bg-gray-700 p-4 rounded-lg">
-                 <h3 class="font-bold text-white">Datos del Acuerdo</h3>
-                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" id="agreement-day" placeholder="Día (ej: 10)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                    <input type="text" id="agreement-month" placeholder="Mes (ej: Agosto)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                    <input type="text" id="company-rut" placeholder="RUT de la Empresa" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                    <input type="number" id="investment-amount" placeholder="Monto Inversión (ej: 51400000)" class="w-full p-2 bg-gray-600 text-white rounded border border-gray-500">
-                 </div>
-            </div>
+    <!-- Header (Hero Section) -->
+    <header class="bg-white text-center py-20 lg:py-32 px-4">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-base font-semibold text-blue-800 tracking-widest uppercase">
+                Plan de Inversión
+            </p>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight mt-3">
+                CASAS FABRICK
+            </h1>
+            <!-- Línea decorativa -->
+            <div class="w-32 h-1.5 bg-amber-500 mx-auto my-8 rounded-full"></div>
+            <p class="text-xl sm:text-2xl text-gray-600 font-medium max-w-2xl mx-auto">
+                Construimos casas, construimos historias.
+                <span class="block text-lg mt-2">Revolucionando el estándar de la construcción de viviendas en la Región del Maule.</span>
+            </p>
+            <a href="#oportunidad" class="mt-12 inline-block bg-blue-800 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-900 transition-colors duration-300">
+                Conocer la Oportunidad
+            </a>
         </div>
-    </div>
+    </header>
 
-    <!-- DOCUMENTO LEGAL -->
-    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 shadow-2xl border border-gray-300 document-container">
+    <main class="overflow-x-hidden">
 
-        <!-- Encabezado -->
-        <header class="text-center mb-10">
-            <div class="w-48 mx-auto mb-4">
-                 <svg viewBox="0 0 200 100" class="w-full h-auto">
-                    <path d="M160 20 L100 70 L40 20 L0 55 L100 100 L200 55 L160 20 Z" fill="#111827"/>
-                    <text x="100" y="45" font-family="Inter, sans-serif" font-size="20" font-weight="900" text-anchor="middle" fill="#fbbf24">CASAS FABRICK</text>
-                    <text x="100" y="65" font-family="Inter, sans-serif" font-size="8" text-anchor="middle" fill="#ffffff" letter-spacing="1">CONSTRUIMOS CASAS, CREAMOS HISTORIAS</text>
-                </svg>
+        <!-- Nuestra Visión Section -->
+        <section class="py-16 md:py-24 px-4 bg-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="section-title">Nuestra Visión</h2>
+                <p class="text-2xl md:text-3xl font-medium text-gray-700 leading-relaxed">
+                    "Ser la empresa constructora líder en la Región del Maule, reconocida por nuestra <strong>calidad</strong>, <strong>transparencia</strong> y <strong>compromiso</strong> inquebrantable con la satisfacción del cliente, transformando el estándar de la construcción de viviendas."
+                </p>
             </div>
-            <h1 class="text-3xl font-bold text-gray-900">PACTO DE ACCIONISTAS</h1>
-            <h2 class="text-xl text-gray-700">CASAS FABRICK SpA</h2>
-        </header>
+        </section>
 
-        <!-- Comparecencia -->
-        <p class="text-sm text-gray-700 mb-6">En Linares, a <span id="day-display" class="data-placeholder">[Día]</span> de <span id="month-display" class="data-placeholder">[Mes]</span> de 2025, entre:</p>
-        <p class="text-sm text-gray-700 mb-2">Por una parte, **<span id="founder-name-display" class="data-placeholder">[TU NOMBRE COMPLETO]</span>**, cédula de identidad número **<span id="founder-rut-display" class="data-placeholder">[Tu RUT]</span>**, domiciliado en **<span id="founder-domicile-display" class="data-placeholder">[Tu Domicilio]</span>**, en adelante el "Fundador";</p>
-        <p class="text-sm text-gray-700 mb-6">Y por la otra parte, **<span id="investor-name-display" class="data-placeholder">[NOMBRE DEL INVERSIONISTA]</span>**, cédula de identidad número **<span id="investor-rut-display" class="data-placeholder">[RUT del Inversionista]</span>**, domiciliado en **<span id="investor-domicile-display" class="data-placeholder">[Domicilio del Inversionista]</span>**, en adelante el "Inversionista";</p>
-
-        <!-- Cláusulas -->
-        <div>
-            <h3 class="clause-title">PRIMERO: ANTECEDENTES.</h3>
-            <p class="text-sm text-gray-700">Los comparecientes son los únicos accionistas de la sociedad "Casas Fabrick SpA", RUT N° <span id="company-rut-display" class="data-placeholder">[RUT de la Empresa]</span>, en adelante "la Sociedad". Este pacto regula sus relaciones, la administración y la distribución de utilidades, en adición a los estatutos sociales.</p>
-
-            <h3 class="clause-title">SEGUNDO: ADMINISTRACIÓN Y TOMA DE DECISIONES.</h3>
-            <p class="text-sm text-gray-700">La administración de la Sociedad corresponderá en su totalidad al Fundador, don **<span id="founder-name-display-2" class="data-placeholder">[TU NOMBRE COMPLETO]</span>**. Para decisiones estratégicas, el Administrador consultará al Inversionista, pero la decisión final recaerá exclusivamente en el Administrador.</p>
-
-            <h3 class="clause-title">TERCERO: POLÍTICA DE DISTRIBUCIÓN DE UTILIDADES.</h3>
-            <p class="text-sm text-gray-700">La Utilidad Bruta de cada proyecto (ingreso total menos costos directos) se distribuirá de la siguiente manera:</p>
-            <ul class="list-disc list-inside text-sm text-gray-700 mt-2 pl-4">
-                <li>Un **30% (treinta por ciento)** para el Inversionista.</li>
-                <li>Un **30% (treinta por ciento)** para el Fundador.</li>
-                <li>Un **40% (cuarenta por ciento)** para un "Fondo de Recuperación de Capital y Reinversión".</li>
-            </ul>
-
-            <h3 class="clause-title">CUARTO: MECANISMO DE RETORNO DE LA INVERSIÓN.</h3>
-            <p class="text-sm text-gray-700">El Inversionista ha aportado un capital de **$<span id="investment-amount-display" class="data-placeholder">[Monto]</span> (<span id="investment-amount-text" class="data-placeholder">[Monto en Palabras]</span> pesos chilenos)**, en adelante "el Capital Invertido". El 40% de la Utilidad Bruta se destinará a devolver este capital.</p>
-
-            <h3 class="clause-title">QUINTO: CESE DE PARTICIPACIÓN POST-RECUPERACIÓN.</h3>
-            <p class="text-sm text-gray-700">Una vez que el Inversionista haya recibido el 100% de su Capital Invertido, su derecho a recibir el 30% de las utilidades de futuros proyectos cesará de forma automática y permanente. A partir de ese momento, el Inversionista quedará exento de la participación en las ganancias de la Sociedad.</p>
-
-            <h3 class="clause-title">SEXTO: CESIÓN DE ACCIONES POST-RECUPERACIÓN.</h3>
-            <p class="text-sm text-gray-700">Como consecuencia de lo establecido en la cláusula anterior, y una vez completado el retorno del 100% del Capital Invertido, el Inversionista se obliga a ceder y transferir la totalidad de sus acciones en la Sociedad al Fundador, o a quien este designe. Dicha cesión se realizará a título gratuito, por cuanto su valor se considera pagado con el retorno de la inversión y la participación en las utilidades durante el periodo de recuperación. Las partes se comprometen a firmar todos los documentos necesarios para perfeccionar esta cesión en un plazo no mayor a 30 días hábiles desde la notificación del pago final.</p>
-
-            <h3 class="clause-title">SÉPTIMO: CONFIDENCIALIDAD Y ACUERDO COMPLETO.</h3>
-            <p class="text-sm text-gray-700">Las partes se obligan a mantener estricta confidencialidad sobre este acuerdo. Este pacto representa el entendimiento total y completo entre las partes, reemplazando cualquier acuerdo verbal o escrito previo.</p>
-
-            <h3 class="clause-title">OCTAVO: SOLUCIÓN DE CONTROVERSIAS Y VIGENCIA.</h3>
-            <p class="text-sm text-gray-700">Para todos los efectos legales, las partes fijan su domicilio en la ciudad de Linares. El presente pacto tendrá una duración indefinida mientras los comparecientes mantengan su calidad de accionistas.</p>
-        </div>
-
-        <!-- Sección de Firmas -->
-        <div class="mt-16 grid grid-cols-2 gap-16">
-            <div class="text-center">
-                <div class="signature-line w-full"></div>
-                <p id="founder-signature-name" class="mt-2 font-bold">[TU NOMBRE COMPLETO]</p>
-                <p id="founder-signature-rut" class="text-sm text-gray-600">RUT: [Tu RUT]</p>
-                <p class="text-sm text-gray-600 font-bold">FUNDADOR / ADMINISTRADOR</p>
+        <!-- El Dolor del Mercado (El Problema) -->
+        <section class="py-16 md:py-24 px-4 bg-gray-100">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="section-title">El Dolor del Mercado Actual</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Tarjeta de "Dolor" 1 -->
+                    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-red-800">Acabados deficientes y de baja calidad.</p>
+                    </div>
+                    <!-- Tarjeta de "Dolor" 2 -->
+                    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-red-800">Incumplimiento sistemático de los plazos de entrega.</p>
+                    </div>
+                    <!-- Tarjeta de "Dolor" 3 -->
+                    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-red-800">Pésimo servicio post-venta y falta de garantías.</p>
+                    </div>
+                    <!-- Tarjeta de "Dolor" 4 -->
+                    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-red-800">Falta de profesionalismo y comunicación clara.</p>
+                    </div>
+                </div>
             </div>
-            <div class="text-center">
-                <div class="signature-line w-full"></div>
-                <p id="investor-signature-name" class="mt-2 font-bold">[NOMBRE DEL INVERSIONISTA]</p>
-                <p id="investor-signature-rut" class="text-sm text-gray-600">RUT: [RUT del Inversionista]</p>
-                <p class="text-sm text-gray-600 font-bold">INVERSIONISTA</p>
+        </section>
+
+        <!-- Nuestra Solución (La Respuesta) -->
+        <section class="py-16 md:py-24 px-4 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="section-title">Nuestra Solución: El Compromiso Fabrick</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Tarjeta de "Solución" 1 -->
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-green-900">Maestros especialistas dedicados exclusivamente a terminaciones finas.</p>
+                    </div>
+                    <!-- Tarjeta de "Solución" 2 -->
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-green-900">Checklist de 200 puntos de calidad supervisado con el cliente.</p>
+                    </div>
+                    <!-- Tarjeta de "Solución" 3 -->
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-green-900">Dashboard de seguimiento en tiempo real para total transparencia.</p>
+                    </div>
+                    <!-- Tarjeta de "Solución" 4 -->
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-lg font-semibold text-green-900">Garantía post-venta sólida y un equipo que responde.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="text-center mt-6 no-print">
-        <button onclick="window.print()" class="bg-gray-800 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-900 transition-colors">Imprimir y Notariar</button>
-    </div>
+        <!-- Oportunidad de Mercado Section -->
+        <section id="oportunidad" class="py-16 md:py-24 px-4 bg-gray-100">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-title">Una Oportunidad de Mercado Masiva</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    <!-- Texto de Oportunidad -->
+                    <div class="lg:w-1/2 text-left space-y-6">
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Del mercado de construcción de viviendas en la Región del Maule corresponde a proyectos de madera y metalcon.
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            No apuntamos a un nicho, sino a la <strong>mayor parte del mercado</strong> con una oferta de <strong>calidad superior</strong>, corrigiendo los vicios de la industria.
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Nuestra estructura de costos optimizada nos permite ofrecer esta calidad premium a un precio que redefine el mercado.
+                        </p>
+                    </div>
+                    <!-- Bloque de >70% -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="bg-blue-800 text-white p-10 py-12 lg:p-16 rounded-xl shadow-2xl text-center">
+                            <span class="text-7xl lg:text-8xl font-extrabold text-amber-400">&gt;70%</span>
+                            <p class="text-3xl font-bold mt-4 text-gray-100">del Mercado Potencial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fields = {
-                'founder-name': ['founder-name-display', 'founder-name-display-2', 'founder-signature-name'],
-                'founder-rut': ['founder-rut-display', 'founder-signature-rut'],
-                'founder-domicile': ['founder-domicile-display'],
-                'investor-name': ['investor-name-display', 'investor-signature-name'],
-                'investor-rut': ['investor-rut-display', 'investor-signature-rut'],
-                'investor-domicile': ['investor-domicile-display'],
-                'agreement-day': ['day-display'],
-                'agreement-month': ['month-display'],
-                'company-rut': ['company-rut-display'],
-                'investment-amount': ['investment-amount-display']
-            };
+        <!-- Calculadora de Oportunidad -->
+        <section class="py-16 md:py-24 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-title">Vea la Oportunidad: Calculadora de Proyecto</h2>
+                <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto -mt-8 mb-12">
+                    Nuestra eficiencia nos permite ofrecer <strong>calidad de $1.7M/m²</strong> a un precio imbatible. Vea la diferencia usted mismo.
+                </p>
+                
+                <!-- Controles de la Calculadora -->
+                <div class="card p-6 max-w-xl mx-auto">
+                    <label for="metrosCuadrados" class="block text-lg font-semibold text-gray-800 mb-2">Ingrese Metros Cuadrados (m²)</label>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="number" id="metrosCuadrados" placeholder="Ej: 100" class="flex-grow w-full text-lg p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition">
+                        <button id="calcularBtn" class="w-full sm:w-auto bg-blue-800 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-blue-900 transition-colors duration-300">
+                            Calcular
+                        </button>
+                    </div>
+                    <p id="calcError" class="text-red-600 mt-2 text-sm hidden">Por favor, ingrese un número válido de metros.</p>
+                </div>
+                
+                <!-- Resultados de la Calculadora -->
+                <div id="resultadosCalculadora" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Los resultados se inyectarán aquí -->
+                </div>
+            </div>
+        </section>
 
-            function updateContract() {
-                for (const inputId in fields) {
-                    const inputElement = document.getElementById(inputId);
-                    if(!inputElement) continue;
-                    const value = inputElement.value;
-                    const displayIds = fields[inputId];
+        <!-- Ventaja Competitiva Section -->
+        <section class="py-16 md:py-24 px-4 bg-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="section-title">Nuestra Ventaja Competitiva</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Tarjeta Ventaja 1: Calidad Obsesiva -->
+                    <div class="card p-8 text-center">
+                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Calidad Obsesiva</h3>
+                        <p class="text-gray-600 text-lg">
+                            Nuestro equipo de terminaciones es una ventaja estructural. No es un costo, es nuestra mejor herramienta de marketing.
+                        </p>
+                    </div>
 
-                    displayIds.forEach(displayId => {
-                        const displayElement = document.getElementById(displayId);
-                        if(displayElement) {
-                             const placeholder = `[${displayElement.id.replace(/-display(-\d)?|-signature/g, '').replace(/-/g,' ')}]`;
-                             displayElement.textContent = value || placeholder;
-                        }
-                    });
-                }
+                    <!-- Tarjeta Ventaja 2: Enfoque en el Cliente -->
+                    <div class="card p-8 text-center">
+                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-2.372M16 11V7a4 4 0 00-8 0v4M5 9h14M5 11h14m-7 4h1.5a2.5 2.5 0 012.5 2.5V20m-7-1a2.5 2.5 0 002.5 2.5h1.5m-11-4.054V20H2a2 2 0 01-2-2v-2.5a2.5 2.5 0 012.5-2.5c.343 0 .674.043.988.129M12 11V7a4 4 0 00-8 0v4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Enfoque en el Cliente</h3>
+                        <p class="text-gray-600 text-lg">
+                            Desde el dashboard hasta la post-venta, todo el proceso está diseñado para generar confianza y satisfacción.
+                        </p>
+                    </div>
 
-                const amountInput = document.getElementById('investment-amount');
-                const amount = parseInt(amountInput.value, 10);
-                const amountTextEl = document.getElementById('investment-amount-text');
-                if (amountTextEl) {
-                    amountTextEl.textContent = amount ? numberToWords(amount) : '[Monto en Palabras]';
-                }
-            }
+                    <!-- Tarjeta Ventaja 3: Marca Profesional -->
+                    <div class="card p-8 text-center">
+                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Marca Profesional</h3>
+                        <p class="text-gray-600 text-lg">
+                            A diferencia de la competencia informal, invertimos en una marca que comunica solidez, confianza y profesionalismo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            Object.keys(fields).forEach(inputId => {
-                const element = document.getElementById(inputId);
-                if (element) {
-                   element.addEventListener('keyup', updateContract);
-                }
-            });
+        <!-- ****** NUEVA SECCIÓN: El Equipo ****** -->
+        <section class="py-16 md:py-24 px-4 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="section-title">El Equipo: Nuestra Garantía de Ejecución</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Columna de Texto y Estadísticas -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-blue-900 mb-6">Experiencia Comprobada, Calidad Asegurada</h3>
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                            Nuestra capacidad para cumplir cada promesa no se basa en teoría, sino en un equipo senior con un historial probado. Esta experiencia es la que nos permite optimizar costos sin sacrificar un ápice de calidad.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div>
+                                <span class="text-5xl font-extrabold text-amber-500">+7</span>
+                                <p class="text-lg font-semibold text-gray-700 mt-2">Años de Experiencia en el Rubro</p>
+                            </div>
+                            <div>
+                                <span class="text-5xl font-extrabold text-amber-500">+150</span>
+                                <p class="text-lg font-semibold text-gray-700 mt-2">Proyectos de Construcción Completados</p>
+                            </div>
+                        </div>
+                    </div>
 
-            function numberToWords(n) {
-                if (typeof n === 'string') n = parseInt(n, 10);
-                if (isNaN(n) || n === null) return '';
-                if (n === 0) return 'cero';
-
-                const unidades = ['', 'un', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
-                const decenas = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'];
-                const veintes = ['veinte', 'veintiún', 'veintidós', 'veintitrés', 'veinticuatro', 'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 'veintinueve'];
-                const multiplosDeDiez = ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
-                const centenas = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'];
-
-                function getDecenas(num) {
-                    if (num < 10) return unidades[num];
-                    if (num < 20) return decenas[num - 10];
-                    if (num < 30) return veintes[num - 20];
-                    const d = Math.floor(num / 10);
-                    const u = num % 10;
-                    let output = multiplosDeDiez[d];
-                    if (u > 0) output += ' y ' + unidades[u];
-                    if (output.endsWith('uno')) {
-                        output = output.slice(0, -1);
-                    }
-                    return output;
-                }
-
-                function getCentenas(num) {
-                    if (num > 999) return '';
-                    if (num === 100) return 'cien';
-                    const c = Math.floor(num / 100);
-                    const d = num % 100;
-                    let output = centenas[c];
-                    if (d > 0) {
-                        output += ' ' + getDecenas(d);
-                    }
-                    return output;
-                }
-
-                function getMiles(num) {
-                    if (num < 1000) return getCentenas(num);
-                    const m = Math.floor(num / 1000);
-                    const r = num % 1000;
-                    let output = '';
-                    if (m === 1) {
-                        output = 'mil';
-                    } else {
-                        output = getCentenas(m) + ' mil';
-                    }
-                    if (r > 0) {
-                        output += ' ' + getCentenas(r);
-                    }
-                    return output;
-                }
-
-                function getMillones(num) {
-                    if (num < 1000000) return getMiles(num);
-                    const m = Math.floor(num / 1000000);
-                    const r = num % 1000000;
-                    let output = '';
-                    if (m === 1) {
-                        output = 'un millón';
-                    } else {
-                        output = getMiles(m) + ' millones';
-                    }
-                    if (r > 0) {
-                        output += ' ' + getMiles(r);
-                    }
-                    return output;
-                }
-
-                let result = getMillones(n);
-                if (n % 100 === 21 && !result.includes('millones') && !result.includes('mil')) {
-                    result = result.replace('veintiún', 'veintiuno');
-                }
-                if (n === 1) {
-                    result = 'uno';
-                }
-
-                return result.trim();
-            }
-
-            updateContract();
-        });
-    </script>
-
-</body>
-</html>
+                    <!-- Columna de Habilidades -->
+                    <div class="card p-8 bg-gra
