@@ -75,6 +75,80 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* --- ESTILOS PARA EL GRÁFICO DE BARRAS --- */
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 800px; /* Ancho máximo del gráfico */
+            height: 350px; /* Altura del gráfico */
+            margin: 0 auto;
+            padding: 20px 10px 0 10px;
+            border-bottom: 2px solid #d1d5db; /* Gray-300 */
+            border-left: 2px solid #d1d5db; /* Gray-300 */
+            position: relative;
+        }
+
+        /* Líneas de guía del eje Y */
+        .y-axis-guide {
+            position: absolute;
+            width: 100%;
+            border-bottom: 1px dashed #e5e7eb; /* Gray-200 */
+            left: 0;
+            z-index: 0;
+        }
+        .y-axis-label {
+            position: absolute;
+            left: -10px; /* Posición del texto */
+            transform: translateX(-100%);
+            font-size: 0.875rem; /* 14px */
+            color: var(--color-text-light);
+        }
+
+        .chart-bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            flex-basis: 0;
+            z-index: 10;
+        }
+        
+        .chart-bar {
+            width: 60%; /* Ancho de la barra */
+            max-width: 80px; /* Ancho máximo de la barra */
+            background-color: var(--color-primary);
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            transition: height 0.8s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* Color diferente para las barras objetivo */
+        .chart-bar.target {
+            background-color: var(--color-secondary);
+        }
+
+        .bar-percentage {
+            position: absolute;
+            top: -28px; /* Encima de la barra */
+            font-weight: 700;
+            font-size: 1.125rem; /* 18px */
+            color: var(--color-text);
+        }
+        
+        .bar-label {
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 1rem; /* 16px */
+            color: var(--color-text-light);
+            text-align: center;
+        }
+        /* --- FIN ESTILOS GRÁFICO --- */
     </style>
 </head>
 <body class="bg-gray-100">
@@ -186,15 +260,71 @@
             </div>
         </section>
 
+        <!-- ****** NUEVA SECCIÓN: Gráfico de Mercado ****** -->
+        <section class="py-16 md:py-24 px-4 bg-gray-100">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-title">Análisis del Mercado Regional:<br>¿Qué se Construye en el Maule?</h2>
+                <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto -mt-8 mb-16">
+                    El mercado de la construcción en la región está claramente dominado por dos materialidades. Sin embargo, la gran mayoría de esta oferta sufre de los problemas de calidad e informalidad que venimos a resolver.
+                </p>
+
+                <!-- Gráfico de Barras -->
+                <div class="chart-container">
+                    <!-- Líneas de guía y etiquetas del eje Y -->
+                    <div class="y-axis-guide" style="bottom: 25%;"><span class="y-axis-label" style="bottom: -10px;">25%</span></div>
+                    <div class="y-axis-guide" style="bottom: 50%;"><span class="y-axis-label" style="bottom: -10px;">50%</span></div>
+                    <div class="y-axis-guide" style="bottom: 75%;"><span class="y-axis-label" style="bottom: -10px;">75%</span></div>
+                    <div class="y-axis-guide" style="top: 0;"><span class="y-axis-label" style="top: -10px;">100%</span></div>
+
+                    <!-- Barra 1: Madera -->
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar target" style="height: 45%;">
+                            <span class="bar-percentage">45%</span>
+                        </div>
+                        <span class="bar-label">Madera</span>
+                    </div>
+                    <!-- Barra 2: Metalcom -->
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar target" style="height: 30%;">
+                            <span class="bar-percentage">30%</span>
+                        </div>
+                        <span class="bar-label">Metalcom</span>
+                    </div>
+                    <!-- Barra 3: Hormigón -->
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar" style="height: 20%;">
+                            <span class="bar-percentage">20%</span>
+                        </div>
+                        <span class="bar-label">Hormigón</span>
+                    </div>
+                    <!-- Barra 4: Otros -->
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar" style="height: 5%;">
+                            <span class="bar-percentage">5%</span>
+                        </div>
+                        <span class="bar-label">Otros</span>
+                    </div>
+                </div>
+                
+                <p class="text-center text-lg text-gray-700 font-semibold mt-12">
+                    <span class="text-amber-600 font-bold">Madera + Metalcom suman el 75% del mercado potencial.</span>
+                    <br>
+                    Este es nuestro foco.
+                </p>
+            </div>
+        </section>
+        <!-- ****** FIN NUEVA SECCIÓN ****** -->
+
+
         <!-- Oportunidad de Mercado Section -->
-        <section id="oportunidad" class="py-16 md:py-24 px-4 bg-gray-100">
+        <section id="oportunidad" class="py-16 md:py-24 px-4 bg-white"> <!-- Alternar color -->
             <div class="max-w-6xl mx-auto">
                 <h2 class="section-title">Una Oportunidad de Mercado Masiva</h2>
                 <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     <!-- Texto de Oportunidad -->
                     <div class="lg:w-1/2 text-left space-y-6">
                         <p class="text-xl text-gray-700 leading-relaxed">
-                            Del mercado de construcción de viviendas en la Región del Maule corresponde a proyectos de madera y metalcon.
+                            Como vimos, más del 70% del mercado de construcción de viviendas en la Región del Maule corresponde a proyectos de madera y metalcon.
                         </p>
                         <p class="text-xl text-gray-700 leading-relaxed">
                             No apuntamos a un nicho, sino a la <strong>mayor parte del mercado</strong> con una oferta de <strong>calidad superior</strong>, corrigiendo los vicios de la industria.
@@ -215,7 +345,7 @@
         </section>
 
         <!-- Calculadora de Oportunidad -->
-        <section class="py-16 md:py-24 px-4 bg-white">
+        <section class="py-16 md:py-24 px-4 bg-gray-100"> <!-- Alternar color -->
             <div class="max-w-6xl mx-auto">
                 <h2 class="section-title">Vea la Oportunidad: Calculadora de Proyecto</h2>
                 <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto -mt-8 mb-12">
@@ -237,81 +367,4 @@
                 <!-- Resultados de la Calculadora -->
                 <div id="resultadosCalculadora" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     <!-- Los resultados se inyectarán aquí -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Ventaja Competitiva Section -->
-        <section class="py-16 md:py-24 px-4 bg-gray-100">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="section-title">Nuestra Ventaja Competitiva</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- Tarjeta Ventaja 1: Calidad Obsesiva -->
-                    <div class="card p-8 text-center">
-                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Calidad Obsesiva</h3>
-                        <p class="text-gray-600 text-lg">
-                            Nuestro equipo de terminaciones es una ventaja estructural. No es un costo, es nuestra mejor herramienta de marketing.
-                        </p>
-                    </div>
-
-                    <!-- Tarjeta Ventaja 2: Enfoque en el Cliente -->
-                    <div class="card p-8 text-center">
-                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-2.372M16 11V7a4 4 0 00-8 0v4M5 9h14M5 11h14m-7 4h1.5a2.5 2.5 0 012.5 2.5V20m-7-1a2.5 2.5 0 002.5 2.5h1.5m-11-4.054V20H2a2 2 0 01-2-2v-2.5a2.5 2.5 0 012.5-2.5c.343 0 .674.043.988.129M12 11V7a4 4 0 00-8 0v4" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Enfoque en el Cliente</h3>
-                        <p class="text-gray-600 text-lg">
-                            Desde el dashboard hasta la post-venta, todo el proceso está diseñado para generar confianza y satisfacción.
-                        </p>
-                    </div>
-
-                    <!-- Tarjeta Ventaja 3: Marca Profesional -->
-                    <div class="card p-8 text-center">
-                        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-blue-900">Marca Profesional</h3>
-                        <p class="text-gray-600 text-lg">
-                            A diferencia de la competencia informal, invertimos en una marca que comunica solidez, confianza y profesionalismo.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ****** NUEVA SECCIÓN: El Equipo ****** -->
-        <section class="py-16 md:py-24 px-4 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="section-title">El Equipo: Nuestra Garantía de Ejecución</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    
-                    <!-- Columna de Texto y Estadísticas -->
-                    <div>
-                        <h3 class="text-3xl font-bold text-blue-900 mb-6">Experiencia Comprobada, Calidad Asegurada</h3>
-                        <p class="text-xl text-gray-700 leading-relaxed mb-8">
-                            Nuestra capacidad para cumplir cada promesa no se basa en teoría, sino en un equipo senior con un historial probado. Esta experiencia es la que nos permite optimizar costos sin sacrificar un ápice de calidad.
-                        </p>
-                        <div class="grid grid-cols-2 gap-6 text-center">
-                            <div>
-                                <span class="text-5xl font-extrabold text-amber-500">+7</span>
-                                <p class="text-lg font-semibold text-gray-700 mt-2">Años de Experiencia en el Rubro</p>
-                            </div>
-                            <div>
-                                <span class="text-5xl font-extrabold text-amber-500">+150</span>
-                                <p class="text-lg font-semibold text-gray-700 mt-2">Proyectos de Construcción Completados</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Columna de Habilidades -->
-                    <div class="card p-8 bg-gra
+           
