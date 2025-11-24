@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructora Edifica | Construimos tus Sueños</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-hard-hat text-yellow-500 text-3xl mr-2"></i>
+                        <span class="font-bold text-2xl text-gray-900">EDIFICA</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-yellow-600 font-medium transition">Inicio</a>
+                    <a href="#servicios" class="text-gray-600 hover:text-yellow-600 font-medium transition">Servicios</a>
+                    <a href="#proyectos" class="text-gray-600 hover:text-yellow-600 font-medium transition">Proyectos</a>
+                    <a href="#nosotros" class="text-gray-600 hover:text-yellow-600 font-medium transition">Nosotros</a>
+                    <a href="#contacto" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded-md font-medium transition">Contáctanos</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                Construimos el Futuro,<br> <span class="text-yellow-500">Creamos Realidades</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+                Especialistas en construcción residencial, comercial e industrial. Calidad, seguridad y compromiso en cada proyecto.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#proyectos" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition transform hover:scale-105">
+                    Ver Proyectos
+                </a>
+                <a href="#contacto" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-lg transition">
+                    Solicitar Presupuesto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Ofrecemos soluciones integrales para todo tipo de necesidades constructivas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-yellow-500 group">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition duration-300">
+                        <i class="fas fa-home text-2xl text-yellow-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Construcción Residencial</h3>
+                    <p class="text-gray-600">Desde casas unifamiliares hasta complejos habitacionales. Diseñamos y construimos el hogar de tus sueños.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-yellow-500 group">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition duration-300">
+                        <i class="fas fa-building text-2xl text-yellow-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Edificación Comercial</h3>
+                    <p class="text-gray-600">Oficinas, locales comerciales y naves industriales. Espacios funcionales para potenciar tu negocio.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-yellow-500 group">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition duration-300">
+                        <i class="fas fa-tools text-2xl text-yellow-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Remodelaciones</h3>
+                    <p class="text-gray-600">Transformamos espacios existentes. Renovaciones completas, ampliaciones y mantenimiento general.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="nosotros" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Por qué elegirnos?</h2>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        En Edifica, no solo construimos edificios, construimos confianza. Con más de 15 años de experiencia, nuestro equipo de profesionales garantiza la excelencia en cada etapa del proyecto.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-yellow-500 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold">Calidad Certificada</h4>
+                                <p class="text-gray-400 mt-1">Utilizamos los mejores materiales y seguimos estrictos estándares de construcción.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clock text-yellow-500 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold">Puntualidad</h4>
+                                <p class="text-gray-400 mt-1">Respetamos los plazos acordados. Tu tiempo es nuestra prioridad.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-users text-yellow-500 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold">Equipo Experto</h4>
+                                <p class="text-gray-400 mt-1">Arquitectos, ingenieros y obreros altamente capacitados a tu disposición.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Arquitectura" class="rounded-lg shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-yellow-500 p-8 rounded-lg hidden md:block">
+                        <p class="text-4xl font-bold text-gray-900">15+</p>
+                        <p class="text-gray-900 font-semibold">Años de Experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Proyectos Recientes</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600596542815-27bfefd5c3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Casa Moderna" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-2 border-white px-4 py-2">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-900">Residencial Los Álamos</h3>
+                        <p class="text-gray-500 mt-2">Construcción Residencial</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Edificio Corporativo" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-2 border-white px-4 py-2">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-900">Torre Vanguardia</h3>
+                        <p class="text-gray-500 mt-2">Edificación Comercial</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Renovación Interior" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-2 border-white px-4 py-2">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-900">Loft Urbano</h3>
+                        <p class="text-gray-500 mt-2">Remodelación Interior</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-gray-900 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-900 hover:text-white transition">Ver Portafolio Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Contáctanos</h2>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        ¿Tienes un proyecto en mente? Estamos listos para hacerlo realidad. Envíanos un mensaje o llámanos para agendar una visita técnica.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Teléfono</p>
+                                <p class="text-lg font-bold text-gray-900">+56 9 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Email</p>
+                                <p class="text-lg font-bold text-gray-900">contacto@constructoraedifica.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Ubicación</p>
+                                <p class="text-lg font-bold text-gray-900">Av. Principal 123, Santiago, Chile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                                <input type="text" name="name" id="name" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 border shadow-sm outline-none transition" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                                <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 border shadow-sm outline-none transition" placeholder="tucorreo@ejemplo.com">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                                <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 border shadow-sm outline-none transition" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition transform hover:-translate-y-1">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-hard-hat text-yellow-500 text-2xl mr-2"></i>
+                        <span class="font-bold text-2xl">EDIFICA</span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm">
+                        Comprometidos con la excelencia en construcción y diseño. Transformando visiones en estructuras sólidas y duraderas.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block pb-1">Enlaces</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+                        <li><a href="#proyectos" class="text-gray-400 hover:text-white transition">Proyectos</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b-2 border-yellow-500 inline-block pb-1">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 Constructora Edifica. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
